@@ -1,0 +1,54 @@
+#include <iostream>
+#include <iomanip> // for setw
+using namespace std;
+
+int main() {
+    int marks[5];
+    string subjects[5] = {"English", "Math", "Physics", "Chemistry", "Computer"};
+    int totalMarks = 0;
+    
+    // Input marks for 5 subjects
+    cout << "Enter marks for 5 subjects (out of 100 each):\n";
+    for (int i = 0; i < 5; i++) {
+        cout << subjects[i] << ": ";
+        cin >> marks[i];
+        totalMarks += marks[i];
+    }
+
+    // Calculate percentage
+    float percentage = totalMarks / 5.0;
+
+    // Assign grade
+    string grade;
+    if (percentage >= 90)
+        grade = "A+";
+    else if (percentage >= 80)
+        grade = "A";
+    else if (percentage >= 70)
+        grade = "B";
+    else if (percentage >= 60)
+        grade = "C";
+    else if (percentage >= 50)
+        grade = "D";
+    else
+        grade = "F";
+
+    // Use ternary operator to determine Pass/Fail
+    string result = (percentage >= 50) ? "Pass" : "Fail";
+
+    // Display report card
+    cout << "\n========== Report Card ==========\n";
+    cout << left << setw(15) << "Subject" << setw(10) << "Marks" << endl;
+    cout << "---------------------------------\n";
+    for (int i = 0; i < 5; i++) {
+        cout << left << setw(15) << subjects[i] << setw(10) << marks[i] << endl;
+    }
+    cout << "---------------------------------\n";
+    cout << left << setw(15) << "Total" << setw(10) << totalMarks << endl;
+    cout << left << setw(15) << "Percentage" << setw(10) << percentage << "%" << endl;
+    cout << left << setw(15) << "Grade" << setw(10) << grade << endl;
+    cout << left << setw(15) << "Result" << setw(10) << result << endl;
+    cout << "=================================\n";
+
+    return 0;
+}
