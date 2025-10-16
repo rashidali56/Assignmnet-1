@@ -1,0 +1,48 @@
+#include <iostream>
+#include <iomanip>
+using namespace std;
+int main() {
+    float number1, number2;
+cout << "Enter the first number: ";
+    cin >> number1;
+cout << "Enter the second number: ";
+    cin >> number2;
+ Float operations
+    float sum_f = number1 + number2;
+    float diff_f = number1 - number2;
+    float prod_f = number1 * number2;
+    float quot_f = 0.0f;
+    if (number2 != 0.0f) {
+        quot_f = number1 / number2;
+    }
+    cout << fixed << setprecision(3);
+    cout << "\n--- Results using floating point numbers ---\n";
+    cout << "Sum:        " << sum_f << endl;
+    cout << "Difference: " << diff_f << endl;
+    cout << "Product:    " << prod_f << endl;
+    if (number2 != 0.0f)
+        cout << "Quotient:   " << quot_f << endl;
+    else
+        cout << "Quotient:   undefined (division by zero)" << endl;
+  Integer operations using static_cast
+    int int1 = static_cast<int>(number1);
+    int int2 = static_cast<int>(number2);
+    int sum_i = int1 + int2;
+    int diff_i = int1 - int2;
+    int prod_i = int1 * int2;
+    float quot_i = 0.0f;
+    if (int2 != 0)
+        quot_i = static_cast<float>(int1) / int2;
+    cout << "\n--- Results using integers (after casting) ---\n";
+    cout << "First integer:  " << int1 << endl;
+    cout << "Second integer: " << int2 << endl;
+    cout << "Sum:        " << sum_i << endl;
+    cout << "Difference: " << diff_i << endl;
+    cout << "Product:    " << prod_i << endl;
+    if (int2 != 0)
+        cout << "Quotient:   " << quot_i << endl;
+    else
+        cout << "Quotient:   undefined (division by zero)" << endl;
+
+    return 0;
+}
